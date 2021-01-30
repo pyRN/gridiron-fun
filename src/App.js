@@ -5,13 +5,15 @@ import store from "./store";
 import "./styles.css";
 
 //Components
+import BoardComponent from "./components/BoardComponent";
+import CreateBoardComponent from "./components/CreateBoardComponent";
 import DashboardComponent from "./components/DashboardComponent";
 import ForgotComponent from "./components/ForgotComponent";
+import InviteFriendsComponent from "./components/InviteFriendsComponent";
 import LoginComponent from "./components/LoginComponent";
 import MainComponent from "./components/MainComponent";
 import NavBarComponent from "./components/NavBarComponent";
 import RegisterComponent from "./components/RegisterComponent";
-import CreateBoardComponent from "./components/CreateBoardComponent";
 
 export default function App() {
   return (
@@ -22,27 +24,24 @@ export default function App() {
             <NavBarComponent />
           </div>
           <Route path="/" exact render={(props) => <MainComponent />} />
+          <Route path="/board" exact render={(props) => <BoardComponent />} />
           <Route
-            path="/sets"
+            path="/createBoard"
             exact
-            render={(props) => <ExpansionListContainer />}
+            render={(props) => <CreateBoardComponent />}
           />
           <Route
-            path="/cards"
+            path="/invite"
             exact
-            render={(props) => <DisplayedCardsContainer />}
+            render={(props) => <InviteFriendsComponent />}
           />
           <Route path="/login" exact render={(props) => <LoginComponent />} />
           <Route
-            path="/counter"
+            path="/dashboard"
             exact
-            render={(props) => <LifeCounterComponent />}
+            render={(props) => <DashboardComponent />}
           />
-          <Route
-            path="/forgotPass"
-            exact
-            render={(props) => <ForgotComponent />}
-          />
+          <Route path="/forgot" exact render={(props) => <ForgotComponent />} />
           <Route
             path="/register"
             exact
